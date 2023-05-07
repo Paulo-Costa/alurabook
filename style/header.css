@@ -1,0 +1,151 @@
+.cabecalho{
+    background-color: var(--cor-primaria);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.container{
+       display: flex;
+       align-items:  center;
+       
+}
+.container__imagem{
+    padding: 1em;
+}
+.cabecalho__menu__hamburguer{
+    background-image: url(../img/Menu.svg);
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+.lista__menu{
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 30vh; 
+}
+.container__botao:checked~ .lista__menu,.cabacalho__menu__hamburguer{
+    display: block;
+}
+.container__botao{
+    display: none;
+}
+.container__botao:checked ~.container__rotulo> .cabecalho__menu__hamburguer{
+    background-image: url(../img/Menu\ Aberto.svg);
+}
+.container__botao:checked ~.container__rotulo{
+    background: var(--cor-item-menu);
+}
+.lista__menu__titulo,.lista__menu__item{
+    background-color: var(--cor-primaria);
+    padding:1em;
+}
+.lista__menu__titulo{
+    color: var(--cor-titulo-menu);
+    font-weight: 700;
+
+}
+
+.lista__menu__link{
+    text-decoration: none;
+    background: var(--cor-item-menu);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    
+}
+/* configuracoes para o media query width:1024px */
+.container__titulo{
+   display: none;
+}
+.opcoes{
+    display: none;
+}
+/* configuracoes para o media query width:1728px */
+.container__texto{
+    display: none;
+}
+
+@media screen and (min-width: 1024px){
+    /* Retirar o menu hamburguer e o icone de favoritos */
+    .cabecalho__menu__hamburguer{
+        display: none;
+    }
+    .favoritos__icone{
+        display: none;
+    }
+    /* Adicionar o titulo AluraBooks */
+    .container__titulo,.container__titulo__negrito{
+        font-family: var(--fonte-secundaria);
+        color: var(--preto);
+        font-size: 30px;
+    }
+    .container__titulo{
+        font-weight: 400;
+        display: block;
+        
+    }
+    .container__titulo__negrito{
+        font-weight: 700;
+    }
+    .opcoes__categorias:checked~.opcoes__rotulo>.opcoes__item{
+        background: var(--cor-item-menu);
+        color: var(--cor-primaria);
+    }
+    .lista__menu__item:hover{
+        background: var(--cor-item-menu);
+        
+    }
+    .lista__menu__item:hover>.lista__menu__link{
+        -webkit-text-fill-color: var(--cor-primaria);
+        text-decoration: var(--cor-primaria);
+        
+        
+    }
+    
+    /* Adicionar  a lista do cabecalho(categorias,favoritos...) */
+    .opcoes{
+        display: flex;
+        margin-right: 5em;
+    }
+    .opcoes__item{
+        padding: 1em;
+        text-transform: uppercase;
+    }
+    .opcoes__link{
+        text-decoration: none;
+        color: var(--preto);
+    }
+    .opcoes__categorias:checked~.lista__menu{
+        display: block;
+    }
+    .opcoes__categorias{
+        display: none;
+    }
+}
+@media screen and (min-width:1728px){
+    .container__link{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto);
+    }
+    .container__texto{
+        padding:0 0.5em;
+        display: block;
+    }
+    .container{
+        padding: 0 1em;
+    }
+    .opcoes{
+        margin-right: auto;
+    }
+    .container__titulo{
+        margin-right: 2em;
+    }
+
+}
